@@ -1,4 +1,5 @@
 import inspect
+import json
 from collections.abc import Callable
 from dataclasses import dataclass
 from typing import Any
@@ -60,6 +61,13 @@ def run_check(f: Callable, got: str, context: VerifierContext | None = None, **k
 
     Returns (VerificationResult): the verdict, or a failed result carrying the exception
     """
+    # a code agent's final_answer can return any python object (tuple, float, list, dict, ...); the
+    # verifiers all expect the answer as text, so serialise it the way the agent would have printed it
+    if not isinstance(got, str):
+        try:
+            got = json.dumps(got, ensure_ascii=False) if isinstance(got, (list, dict)) else str(got)
+        except TypeError:
+            got = str(got)
     try:
         if wants_context(f):
             # A verifier that declares `context` always gets one: an empty context lets the
