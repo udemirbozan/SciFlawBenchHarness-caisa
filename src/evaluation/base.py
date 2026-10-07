@@ -68,6 +68,10 @@ def run_check(f: Callable, got: str, context: VerifierContext | None = None, **k
             got = json.dumps(got, ensure_ascii=False) if isinstance(got, (list, dict)) else str(got)
         except TypeError:
             got = str(got)
+    # rendered papers use U+2212 MINUS SIGN for negatives; the numeric verifiers only recognise the ascii
+    # hyphen, so -0.54 copied from arXiv with U+2212 would be read as +0.54. the en dash (U+2013) is left
+    # alone: it marks ranges such as 2.8-4.2, and replacing it would make the upper end negative
+    got = got.replace("\u2212", "-")
     try:
         if wants_context(f):
             # A verifier that declares `context` always gets one: an empty context lets the
