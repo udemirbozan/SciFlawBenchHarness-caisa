@@ -1,4 +1,4 @@
-# Void catalog for CMB-lensing stacking (180 randomly selected voids), written by Agent A
+# Void catalog for CMB-lensing stacking: 180 randomly selected voids from Dark Energy Survey Year 3 (DES Y3) data, written by Agent A
 # Void finder run in h = 1 units: positions and radii are comoving, in Mpc/h
 # Columns: id, ra [deg], dec [deg], z, efr = effective void radius [Mpc/h]
 id,ra,dec,z,efr
