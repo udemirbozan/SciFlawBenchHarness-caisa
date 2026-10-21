@@ -49,13 +49,13 @@ def wants_context(f: Callable) -> bool:
         return False
 
 
-def run_check(f: Callable, got: str, context: VerifierContext | None = None, **kwargs) -> VerificationResult:
+def run_check(f: Callable, got: Any, context: VerifierContext | None = None, **kwargs) -> VerificationResult:
     """
     Run one verifier against an agent's output, never raising.
 
     Args:
         f (Callable): the verifier function
-        got (str): the agent's final answer
+        got (Any): the agent's final answer; non-string answers are serialised to text first
         context (VerifierContext | None): extra material, but only handed to verifiers that ask for it
         kwargs (dict): the verifier's configured kwargs
 
