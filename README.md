@@ -171,7 +171,7 @@ Each task is scored by the fraction of its validators that pass: `1.0` when ever
 - a **per failure mode** score for every mode the tasks declare in their `failure_modes` field, measured only over the tasks that declare that mode; and
 - a score for each **family** (`quantitative`, `qualitative`).
 
-Runs killed or crashed before verification (no checks) are counted but excluded from the scores. The failure-mode taxonomy itself is documented in [`docs/failure-modes.md`](docs/failure-modes.md).
+Runs killed or crashed before verification (no checks) are counted but excluded from the scores. [`docs/scoring.md`](docs/scoring.md) explains the judge, the scores and these edge cases with a worked example; the failure-mode taxonomy itself is documented in [`docs/failure-modes.md`](docs/failure-modes.md).
 
 ## Reproducibility and Resuming
 
@@ -236,6 +236,7 @@ Items are submitted through two Google Forms (annotator registration, then task 
 | [`docs/README.md`](docs/README.md) | index of the documentation set |
 | [`docs/task-authoring.md`](docs/task-authoring.md) | how to author and submit an item |
 | [`docs/failure-modes.md`](docs/failure-modes.md) | every failure mode, and the check that implements it |
+| [`docs/scoring.md`](docs/scoring.md) | how checks and the judge decide, and how runs become the overall and per-failure-mode scores |
 | [`docs/tools.md`](docs/tools.md) | canonical tool names, tool-surface rules and code-executor limits |
 | [`SECURITY.md`](SECURITY.md) | what the harness does and does not protect against |
 | [Google Colab](https://colab.research.google.com/drive/1ctDfb7he22O-ipqqhIxSmfM40fEOTWXI?usp=sharing) | run the harness end to end without installing anything |

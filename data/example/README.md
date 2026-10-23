@@ -45,7 +45,7 @@ Each entry of `validators` is a `{"name": ..., "kwargs": {...}}` object naming a
 {"validators": [{"name": "content:numeric_match", "kwargs": {"expected": "18.4", "tol": 0.05}}]}
 ```
 
-Every verifier receives the agent's final answer as its first argument and returns a pass/fail plus a human-readable detail string; a verifier that raises counts as failed. The results are stored as `check_results` in the task's result record and summarised as `Checks: passed/total` in `run_summary.log`. A task's **score** is the fraction of its checks that pass (`1.0` when every check passes); those task scores are what the harness averages into the overall and per-failure-mode scores written to `scores.json` (see [Failure modes](#failure-modes)).
+Every verifier receives the agent's final answer as its first argument and returns a pass/fail plus a human-readable detail string; a verifier that raises counts as failed. The results are stored as `check_results` in the task's result record and summarised as `Checks: passed/total` in `run_summary.log`. A task's **score** is the fraction of its checks that pass (`1.0` when every check passes); those task scores are what the harness averages into the overall and per-failure-mode scores written to `scores.json` (see [Failure modes](#failure-modes), and [`docs/scoring.md`](../../docs/scoring.md) for a worked example).
 
 | Verifier | `kwargs` | What it checks |
 | -------- | -------- | -------------- |

@@ -6,6 +6,7 @@
 | [`../CONTRIBUTING.md`](../CONTRIBUTING.md) | everyone | How to contribute, in either of the two tracks (items or harness code) |
 | [`task-authoring.md`](task-authoring.md) | annotators / domain experts | How to submit, the scope and answer formats, the review process, and how a submission becomes a harness task |
 | [`failure-modes.md`](failure-modes.md) | annotators, reviewers | Every failure mode: what it measures, good design, worked example, and the check that implements it. Also how tasks declare their modes and how per-mode scores are aggregated |
+| [`scoring.md`](scoring.md) | annotators, reviewers, harness users | How checks and the LLM judge decide, how a task's score is computed, and how runs become the overall, per-family and per-failure-mode scores, with a worked example |
 | [`tools.md`](tools.md) | annotators, harness developers | Canonical tool names, how a task's tool surface is built, code-executor limits, requested-but-missing tools |
 | [`../examples/README.md`](../examples/README.md) | harness users | Every run-configuration key, the runner flags, and the judge settings |
 | [`../data/README.md`](../data/README.md) | task authors | Task-file layout, task ids and the asset convention |

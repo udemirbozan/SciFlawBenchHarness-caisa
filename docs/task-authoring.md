@@ -78,7 +78,7 @@ Three things follow from this mapping and are worth repeating:
 
 * **There is no `ground_truth` field in the task file.** The expected answer lives in the validator kwargs. An `answer`/`ground_truth` key written into a task line is silently ignored by the loader — if a check does not reference your ground truth, nothing will catch a wrong answer.
 * **`task_id` is `md5(task)`.** Never edit a prompt without re-deriving its id; the run refuses to start on a mismatch. Repair ids (and rename their asset folders) with `python src/make_task_ids.py <task-file>` (`--check` for a no-write).
-* **`failure_modes` is required and drives scoring.** It is the list of the modes you set to `true`, split into `quantitative` and `qualitative` (at least one mode in total). The harness averages each task's score into an overall score and one score per mode, each restricted to the tasks that declare it — see [Scoring](../README.md#scoring).
+* **`failure_modes` is required and drives scoring.** It is the list of the modes you set to `true`, split into `quantitative` and `qualitative` (at least one mode in total). The harness averages each task's score into an overall score and one score per mode, each restricted to the tasks that declare it — see [`scoring.md`](scoring.md).
 
 Local data files for an item live in `data/tasks/assets/<task_id>/` and are addressed in the prompt as `data/tasks/assets/{TASK_ID}/<file>`; the harness substitutes the real id at run time. See [`../data/README.md`](../data/README.md). If files are required for a task, make sure to create them in the appropriate asset folder with the correct filenames and folder name.
 
